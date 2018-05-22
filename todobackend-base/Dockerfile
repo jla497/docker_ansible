@@ -9,7 +9,7 @@ RUN apt-get update && \
 	-o APT::Install-Suggests=false \
 	python2.7 python-virtualenv python-dev libssl-dev libffi-dev
 
-RUN virtualenv /appenv && \
+RUN virtualenv --python=/usr/bin/python2.7 /appenv && \
 	. /appenv/bin/activate && \
 	pip install pip --upgrade && \
 	pip install pyOpenSSL ndg-httpsclient pyasn1

@@ -2,7 +2,8 @@ FROM jlee/todobackend-base:latest
 MAINTAINER Jae Lee
 
 RUN apt-get update && \ 
-	apt-get install -qy python-dev
+	apt-get install -qy python-dev && \
+	apt-get install -y libmysqlclient-dev
 
 RUN . /appenv/bin/activate && \
     pip install wheel --upgrade
@@ -16,7 +17,7 @@ VOLUME /reports
 COPY scripts/test.sh /usr/local/bin/test.sh
 
 RUN chmod +x /usr/local/bin/test.sh
-
+RUN ls -l
 ENTRYPOINT ["test.sh"]
 CMD ["python", "manage.py", "test", "--noinput"]
 

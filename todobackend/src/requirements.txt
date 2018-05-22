@@ -1,4 +1,3 @@
-urllib3[secure]
 Django==1.9
 django-cors-headers==2.2.0
 djangorestframework==3.3.0
