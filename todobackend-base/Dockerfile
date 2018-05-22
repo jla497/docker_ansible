@@ -7,7 +7,8 @@ RUN apt-get update && \
 	apt-get install -y \
 	-o APT::Install-Recommend=false \
 	-o APT::Install-Suggests=false \
-	python python-virtualenv
+	add-apt-repository ppa:deadsnakes/ppa && \
+	apt-get install python2.7 python-virtualenv
 
 RUN virtualenv /appenv && \
 	. /appenv/bin/activate && \
